@@ -1,6 +1,6 @@
 #!/bin/bash
   
-EXPECTED_ARGS=3
+EXPECTED_ARGS=4
 E_BADARGS=65
 MYSQL=`which mysql`
   
@@ -12,7 +12,7 @@ SQL="${Q1}${Q2}${Q3}${Q4}"
   
 if [ $# -ne $EXPECTED_ARGS ]
 then
-  echo "Usage: $0 dbname dbuser dbpass"
+  echo "Usage: $0 rootpass dbname dbuser dbpass"
   exit $E_BADARGS
 fi
   
