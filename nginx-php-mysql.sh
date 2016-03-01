@@ -25,6 +25,9 @@ apt-get install -y php5-fpm php5-mysql php5-cli php5-curl php5-mcrypt php5-gd
 ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
 
+# Restart PHP
+service php5-fpm restart
+
 # Make /var/www directory
 mkdir /var/www
 
