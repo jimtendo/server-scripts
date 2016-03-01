@@ -7,6 +7,9 @@ echo '/swapfile   none    swap    sw    0   0' >> /etc/fstab
 # Update repos
 apt-get update
 
+# Install common necessities
+apt-get install -y git-core subversion
+
 # Install Nginx
 apt-get install -y nginx
 
@@ -16,7 +19,11 @@ debconf-set-selections <<< 'mysql-server mysql-server/root_password_again passwo
 apt-get install -y mysql-server
 
 # Install PHP
-apt-get install -y php5-fpm php5-mysql
+apt-get install -y php5-fpm php5-mysql php5-cli php5-curl php5-mcrypt php5-gd
+
+# Enable MCrypt
+ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
 
 # Make /var/www directory
 mkdir /var/www
